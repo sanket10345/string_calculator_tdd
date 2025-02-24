@@ -25,4 +25,10 @@ describe('StringCalculator', () => {
   test('supports custom delimiter ";"', () => {
     expect(calculator.add("//;\n1;2")).toBe(3);
   });
+  test('Ignore numbers bigger than 1000', () => {
+    expect(calculator.add("2,1001")).toBe(2);
+  });
+  test('Accept number upto 1000', () => {
+    expect(calculator.add("2,1000")).toBe(1002);
+  });
 });
