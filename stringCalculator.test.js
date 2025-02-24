@@ -19,4 +19,7 @@ describe('StringCalculator', () => {
   test('handles new lines as delimiter', () => {
     expect(calculator.add("1\n2,3")).toBe(6);
   });
+  test('throws error for negative numbers', () => {
+    expect(() => calculator.add("1,-2,3,-4")).toThrow("Negatives not allowed: -2, -4");
+  });
 });
