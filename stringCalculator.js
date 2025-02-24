@@ -7,7 +7,20 @@ class StringCalculator {
         // If custom delimiter Eg-> ";"' //;\n1;2
         if (numbers.startsWith("//")) {
             const parts = numbers.split("\n");
-            delimiter = new RegExp(parts[0].slice(2));
+
+            // Match and extract custom delimiter from format //[delimiter]\n
+            const delimiterMatch = parts[0].match(/^\/\/\[(.+)]$/);
+
+            if (delimiterMatch) { // if delimitier is of the following format //[delimiter]\n[numbers…]”
+                let customDelimiter = delimiterMatch[1];
+                customDelimiter = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                delimiter = new RegExp(customDelimiter);
+            }
+            else { // if delimiter of format //[delimiter]\n[numbers…]
+                let customDelimiter = parts[0].slice(2);
+                customDelimiter = customDelimiter.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                delimiter = new RegExp(customDelimiter);
+            }
             numbers = parts.slice(1).join("\n");
         }
 
@@ -18,6 +31,6 @@ class StringCalculator {
         }
         return numArray.filter(num => num <= 1000).reduce((sum, num) => sum + num, 0);
     }
-  }
-  
-  module.exports = StringCalculator;
+}
+
+module.exports = StringCalculator;

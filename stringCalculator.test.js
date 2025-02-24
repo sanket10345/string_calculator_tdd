@@ -31,4 +31,8 @@ describe('StringCalculator', () => {
   test('Accept number upto 1000', () => {
     expect(calculator.add("2,1000")).toBe(1002);
   });
+  test('Custom Delimiter //[***]\\n1***2***3', () => {
+    expect(calculator.add("//[***]\n1***2***3")).toBe(6);
+  });
+
 });
