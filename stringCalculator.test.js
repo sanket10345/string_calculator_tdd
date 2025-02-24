@@ -34,5 +34,8 @@ describe('StringCalculator', () => {
   test('Custom Delimiter //[***]\\n1***2***3', () => {
     expect(calculator.add("//[***]\n1***2***3")).toBe(6);
   });
+    test('Multiple Custom Delimiters //[*][%]\n1*2%3', () => {
+    expect(calculator.add("//[*][%]\n1*2%3")).toBe(6);
+  });
 
 });
