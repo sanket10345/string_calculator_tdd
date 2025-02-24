@@ -3,6 +3,8 @@
 ## Overview
 This project is an implementation of a **String Calculator** following the principles of **Test-Driven Development (TDD)**. It allows adding numbers from a given string input, supporting different delimiters, including custom and multiple delimiters.
 
+For more details, refer to the [TDD Assessment Blog](https://blog.incubyte.co/blog/tdd-assessment/).
+
 ## Features
 - Adds numbers provided in a string format.
 - Supports default delimiters (comma `,` and newline `\n`).
